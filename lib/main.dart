@@ -13,6 +13,7 @@ class AdoptionBoxApp extends StatelessWidget {
       theme: new ThemeData(
         primarySwatch: Colors.blue,
         accentColor: Colors.pinkAccent,
+        fontFamily: 'Ubuntu'
         ),
       home: new CatList(),
       );
