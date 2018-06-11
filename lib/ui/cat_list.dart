@@ -1,21 +1,37 @@
+import 'package:adoptionapp/models/cat.dart';
+import 'package:adoptionapp/services/api.dart';
 import 'package:flutter/material.dart';
 
 class CatList extends StatefulWidget {
   @override
   _CatListState createState() => new _CatListState();
-
 }
 
 class _CatListState extends State<CatList> {
+  List<Cat> _cats = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _loadCats();
+  }
+
+  _loadCats() async {
+    String fileData = await DefaultAssetBundle.of(context).loadString("assets/cats.json");
+    for (Cat cat in CatApi.allCatsFromJson(fileData)) {
+      _cats.add(cat);
+    }
+    print(_cats.toString());
+  }
 
   Widget _getAppTitleWidget() {
     return new Text(
       'Cats',
-     style: new TextStyle(
+      style: new TextStyle(
         color: Colors.white,
         fontWeight: FontWeight.bold,
         fontSize: 32.0,
-        ),
+      ),
     );
   }
 
@@ -24,6 +40,6 @@ class _CatListState extends State<CatList> {
     return new Scaffold(
       backgroundColor: Colors.blue,
       body: _getAppTitleWidget(),
-      );
+    );
   }
 }

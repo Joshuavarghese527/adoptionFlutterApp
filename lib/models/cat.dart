@@ -6,7 +6,7 @@ class Cat {
   final String description;
   final String avatarUrl;
   final String location;
-  final String likeCounter;
+  final int likeCounter;
   final bool isAdopted;
   final List<String> pictures;
   final List<String> cattributes;
@@ -22,4 +22,9 @@ class Cat {
     @required this.pictures,
     @required this.cattributes,
   });
+
+  @override
+  String toString() {
+    return "Cat $externalId is named $name";
+  }
 }
