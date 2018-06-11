@@ -1,0 +1,13 @@
+name: adoptionapp
+description: View pets that are up for adoption.
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
