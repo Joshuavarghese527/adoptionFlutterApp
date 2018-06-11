@@ -5,6 +5,8 @@ dependencies:
   flutter:
     sdk: flutter
 
+  font_awesome_flutter: "6.0.0"
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -20,3 +22,4 @@ flutter:
 
   assets:
     - assets/cats.json
+    - images/profile_header_background.png
