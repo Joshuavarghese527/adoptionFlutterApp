@@ -1,7 +1,10 @@
 import 'dart:async';
 
+
 import 'package:adoptionapp/models/cat.dart';
 import 'package:adoptionapp/services/api.dart';
+import 'package:adoptionapp/ui/cat_details/details_page.dart';
+import 'package:adoptionapp/utils/routes.dart';
 import 'package:flutter/material.dart';
 
 
@@ -36,7 +39,7 @@ class _CatListState extends State<CatList> {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             new ListTile(
-              //onTap: //TODO
+              onTap: () => _navigateToCatDetails(cat, index),
               leading: new Hero(
                 tag: index,
                 child: new CircleAvatar(
@@ -53,6 +56,17 @@ class _CatListState extends State<CatList> {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  _navigateToCatDetails(Cat cat, Object avatarTag) {
+    Navigator.of(context).push(
+      new FadePageRoute(
+        builder: (c) {
+          return new CatDetailsPage(cat, avatarTag: avatarTag);
+        },
+        settings: new RouteSettings(),
       ),
     );
   }
